@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
 
-from globalVars import *
-
+from globalVars import *  # Variables d'ajustement spatial du laser.
 import random
 
 SPEED = 4
 
 class Absrand(object):
     def __init__(self):
-        self.x, self.y = screen_size[0]/2, screen_size[1]/2
-        self.angle = 0
+        self.x, self.y = screen_size[0]/2, screen_size[1]/2 # Attributs x,y initialement centrés.
         self.last_xy = (self.x, self.y)
         self.speed = SPEED
         self.color = 0xFF00
 
     def Move(self,up_key,down_key,left_key,right_key):
+		'''
+		RESUME  : Génère des mouvements aléatoire suivant les 4 directions, les 
+		4 clés sont des boolées et valent 0 si la direction est interdite, 1 
+		sinon.
+		ENTREES : Les 4 clés directionnelles.
+		SORTIE  : RIEN
+		'''
         self.last_xy = (self.x, self.y)
-        random.seed()
+        random.seed()   # Génère des nombres aléatoires mais sauvegardés.
         direction = random.randint(0,4)
         self.speed += random.randint(0,40)-20
 
@@ -39,11 +44,11 @@ class Absrand(object):
             self.y = screen_size[1]
 
     def Launch(self, f):
-        random.seed()
-        x_dir = self.x + 10*random.randint(-20,20)
-        y_dir = self.y + 10*random.randint(-20,20)
-        self.color = colorshex[random.randint(0,len(colorshex)-1)]
-        f.PolyLineOneColor([(self.x, self.y), (x_dir, y_dir)], self.color, False)
+        random.seed()  # Génère une série de valeurs aléatoire sauvegardées.
+        x_dir = self.x + 10*random.randint(-20,20)  # Crée une nouvelle position aléatoirement suivant x.
+        y_dir = self.y + 10*random.randint(-20,20)  # Crée une nouvelle position aléatoirement suivant x.
+        self.color = colorshex[random.randint(0,len(colorshex)-1)]  # Sélectionne une couleur aléatoire.
+        f.PolyLineOneColor([(self.x, self.y), (x_dir, y_dir)], self.color, False) # Voir frame.py
 
     def Draw(self, f):
         random.seed()
