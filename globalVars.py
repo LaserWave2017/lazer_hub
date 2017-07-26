@@ -1,16 +1,14 @@
 # coding=UTF-8
+# Commentaire : Cyrille Barrera -Responsable Projet LaserWave - 22 Juillet 2017 -
 
-# from globalVars import * : seulement des pseudo-constantes
-
-screen_size = [850,600]
-#screen_size = [1500,600]
+screen_size = [850,600]  # Tailler de l'écran de projection
 space = 200
 strings = 9
 COLOR_ON =  0xFFFFFF
 COLOR_OFF =  0x000000
 STRING_SIZE = 40
-# Uniform :'()
-#colorshex = [0xFF0000, 0xFF0000, 0xFF0000, 0xFF0000, 0xFF0000, 0xFF0000, 0xFF0000, 0xFF0000, 0xFF0000, 0xFF0000]
+# Liste du spectre coloré en hexadécimale : http://cloford.com/resources/colours/500col.htm
+# 0xFF0000= R , 0x0000FF= B, 0x00FF00=R
 colorshex = [0xFF0000,  0xFFAA00, 0xCCCC00, 0xAAFF00, 0x00FF00, 0x00FFAA, 0x00AAFF, 0x0044FF, 0x0000FF]
 
 xy_center = [screen_size[0]/2,screen_size[1]/2]
